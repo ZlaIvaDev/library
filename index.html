@@ -10,21 +10,25 @@
 <body>
     <div class="grid-container">
 
-        <header>
-            <h1>Online~Book~Tracker</h1>
+        <aside class="add-book">
+            <h1>Book~Tracker</h1>
 
-            <label for="input" class="input-lbl">Add a title</label>
-            <input type="text">
-            <div class="header-btn">
-                <button class="hdr">Add</button>
-                <button class="hdr">Clear</button>
+            <label for="input" class="input-lbl">Title</label>
+            <input type="text" class="title">
+            <label for="input" class="input-lbl">Author</label>
+            <input type="text" class="author">
+            <label for="input" class="input-lbl">No. of pages</label>
+            <input type="text" class="pages">
+            <label for="input" class="input-lbl">reading status</label>
+            <input type="text" class="read">
+
+            <div class="aside-btn">
+                <button class="side-btn add" type="submit">Add</button>
+                <button class="side-btn clear" type="reset">Clear</button>
             </div>
 
-        </header>
-
-        <aside class="links-n-buttons">
-            ...
         </aside>
+
 
         <main class="books-grid">
             <div class="cards">
@@ -104,8 +108,9 @@
         </main>
 
         <aside class="empty-container">
-            ...
+
         </aside>
+
 
 
     </div>
