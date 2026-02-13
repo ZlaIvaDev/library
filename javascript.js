@@ -1,29 +1,3 @@
-/*
-book constructor examle
-*/
-
-let hyperion = new Book('Hyperion', 512, 'yes', 'J. Simmons');
-let LoTR = new Book('Lord of the rings', 700, 'no', 'J.R.R. Tolkien' );
-
-/*
-
-All of your book objects are going to be stored
-in an array, so you’ll need a constructor for books.
-Then, add a separate function to the script
-(not inside the constructor)
-that can take some arguments,
-create a book from those arguments,
-and store the new book object into an array.
-
-Also, all of your book objects should have a unique id,
-which can be generated using crypto.randomUUID().
-This ensures each book has a unique and stable identifier,
-preventing issues when books are removed or rearranged.
-Your code should look something like this
-(we’re showing only a basic skeleton without function parameters):
-
-*/
-/* inputs */
 
 const addTitle = document.querySelector('.title');
 const addAuthor = document.querySelector('.author');
@@ -44,13 +18,13 @@ function Book(title, pages, status, author) {
     this.author = author;
     this.status = status;
 
-    this.info = function() {
-        return `${this.title} by ${this.author}, is ${this.pages} pages long. Read status: ${this.status}`
-    }
-
 }
 
 function addBookToLibrary() {
+    let new_book = addTitle.value;
+    new_book = new Book(addTitle.value, addPages.value, addReadStatus.value, addAuthor.value);
+    myLibrary.push(new_book);
+
     
 }
 
@@ -69,50 +43,24 @@ addBtn.addEventListener('click', function() {
     newCard.classList.add('cards')
     mainContainer.appendChild(newCard);
 
-    const newTitle = document.createElement('h3');
-    newTitle.classList.add('book-title');
-    newTitle.textContent = addTitle.value;
-    newCard.appendChild(newTitle);
-
-    const newAuthor = document.createElement('h4');
-    newAuthor.classList.add('book-author');
-    newAuthor.textContent = addAuthor.value;
-    newCard.appendChild(newAuthor);
-
-    const newPages = document.createElement('p');
-    newPages.classList.add('book-pages');
-    newPages.textContent = addPages.value + ' pages';
-    newCard.appendChild(newPages);
-
-    newCard.appendChild(finishedBtnTxt);
-
-    const btn3 = document.createElement('div')
-    btn3.classList.add('button r')
-    btn3.setAttribute("id", "button-3");
-    newCard.appendChild(button3);
-    /* a lot of work lol */
-    const btnInput = document.createElement('input');
-    btnInput.setAttribute('type', 'checkbox');
-    btnInput.classList.add('checkbox');
-    const knobs = document.createElement('div');
-    knobs.classList.add('knobs');
-    const layer = document.createElement('div');
-    layer.classList.add('layer');
-
-    newCard.appendChild(btn3);
-    btn3.appendChild(btnInput);
-    btn3.appendChild(knobs);
-    btn3.appendChild(layer);
-
+    newCard.innerHTML = `
+    <h3 class="book-title">${addTitle.value}</h3
+    <h4 class="book-author">${addAuthor.value}</h4>
+    <p class="book-pages">${addPages.value}</p>
+    <h5 class="reading-status">finished reading</h5>
+    <div class="toggle-button-cover">
+        <div class="button r">
+            <input class="checkbox" type="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+        </div>
+    </div>
+    
+    `
+    addBookToLibrary()
+    
 });
-/*
-<div id="button-3" class="button r">
-                        
-    <input class="checkbox" type="checkbox">
-    <div class="knobs"></div>
-    <div class="layer"></div>
-</div>
-*/
+
 
 
 /* 

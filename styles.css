@@ -8,20 +8,29 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family:  sans-serif;
 }
+
+
+/* FONT*/
+@font-face {
+    font-family: 'Retroscape';
+    src: url('Retroscape.woff2') format('woff2'),
+        url('Retroscape.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1.5fr 3fr 1.5fr;
     width: 100vw;
     height: 100vh;
 }
 
-aside.empty-container {
-    grid-column: 3;
-    background-color: rgb(47, 95, 139);
-}
 /* FONT FAMILY */
 
 
@@ -39,19 +48,27 @@ h5 {
 
 h1 {
     color: rgb(250, 245, 237);
+    font-family: 'Retroscape';    
 }
 
 /* content*/
-aside.add-book {
-    grid-column: 1;
-    height: 100vh;
 
+aside {
+    background-image: url('imgs/pexels-rickyrecap-1907784.jpg');
+    background-size: cover;
+}
+aside.add-book > section {
+    grid-column: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    background-image: url('imgs/pexels-rickyrecap-1907784.jpg');
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 405px;
+    margin-top: 30vh;
+
+
 }
 .side-btn {
     color: rgb(238, 238, 238);
@@ -68,9 +85,10 @@ input {
     padding: 0.5rem;
 }
 .input-lbl {
-    color: rgb(106, 116, 116);
+    color: rgb(193, 221, 221);
     font-style: italic;
     margin-top: 0.5rem;
+    font-family: 'Retroscape'; 
 }
 
 
@@ -87,6 +105,8 @@ main {
     flex-wrap: wrap;
     padding: 2rem;
     padding-top: 8rem;
+
+    overflow:auto;
 
 
 }
@@ -105,4 +125,8 @@ main {
     border-radius: 4rem 1rem;
     background-color: rgb(58, 69, 78);
 
+}
+
+aside > .empty-container {
+    background-color: rgb(47, 95, 139);
 }

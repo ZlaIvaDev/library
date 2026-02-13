@@ -75,7 +75,7 @@
   border-radius: 100px;
 }
 
-#button-3 .knobs:before {
+.r .knobs:before {
   content: "YES";
   position: absolute;
   top: 4px;
@@ -93,21 +93,21 @@
   transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
 }
 
-#button-3 .checkbox:active + .knobs:before {
+.r .checkbox:active + .knobs:before {
   width: 40px;
   border-radius: 100px;
 }
 
-#button-3 .checkbox:checked:active + .knobs:before {
+.r .checkbox:checked:active + .knobs:before {
   margin-left: -26px;
 }
 
-#button-3 .checkbox:checked + .knobs:before {
+.r .checkbox:checked + .knobs:before {
   content: "NO";
   left: 1.75rem;
   background-color: #f3e1e0;
 }
 
-#button-3 .checkbox:checked ~ .layer {
+.r .checkbox:checked ~ .layer {
   background-color: #db2323;
 }
