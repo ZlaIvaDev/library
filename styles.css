@@ -94,7 +94,6 @@ input {
 }
 
 
-
 main {
     grid-column: 2;
     background-color: rgb(47, 95, 139);
@@ -129,9 +128,3 @@ main {
     background-color: rgb(58, 69, 78);
 
 }
-
-aside > .empty-container {
-    background-color: rgb(47, 95, 139);
-}
-
-

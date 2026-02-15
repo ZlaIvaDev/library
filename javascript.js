@@ -19,9 +19,9 @@ function Book(title, pages, author, bstatus, id) {
 
 
 const myLibrary = [
+    {title:'The Count of Monte Cristo', pages:'1276', author:'Alexander Dumas',bstatus:'no',id:crypto.randomUUID()},
     {title:'Hyperion', pages:'483', author:'Dan Simmons',bstatus:'yes',id:crypto.randomUUID()},
     {title:'Fall of Hyperion', pages:'560', author:'Dan Simmons',bstatus:'yes',id:crypto.randomUUID()},
-    {title:'The Count of Monte Cristo', pages:'1276', author:'Alexander Dumas',bstatus:'no',id:crypto.randomUUID()},
     {title:'The New Jerusalem: Gothic Chronicle', pages:'289', author:'Borislav Pekic',bstatus:'yes',id:crypto.randomUUID()},
 ];
 
@@ -41,21 +41,38 @@ myLibrary.forEach(function showBook(item){
     newCard.classList.add('cards')
     mainContainer.appendChild(newCard);
 
-    newCard.innerHTML = `
-    <h3 class="book-title">${item.title}</h3
-    <h4 class="book-author">${item.author}</h4>
-    <p class="book-pages">${item.pages} pages</p>
-    <h5 class="reading-status">finished reading</h5>
-    <div class="toggle-button-cover">
+    if (item.bstatus == 'no') {
+        newCard.innerHTML = `
+        <h3 class="book-title">${item.title}</h3
+        <h4 class="book-author">${item.author}</h4>
+        <p class="book-pages">${item.pages} pages</p>
+        <h5 class="reading-status">finished reading</h5>
+        <div class="toggle-button-cover">
+        <div class="button r">
+            <input class="checkbox" type="checkbox" checked>
+            <div class="knobs"></div>
+            <div class="layer"></div>
+        </div>
+        </div>
+        <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
+
+    `} else {
+        newCard.innerHTML = `
+        <h3 class="book-title">${item.title}</h3
+        <h4 class="book-author">${item.author}</h4>
+        <p class="book-pages">${item.pages} pages</p>
+        <h5 class="reading-status">finished reading</h5>
+        <div class="toggle-button-cover">
         <div class="button r">
             <input class="checkbox" type="checkbox">
             <div class="knobs"></div>
             <div class="layer"></div>
         </div>
-    </div>
-    <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
+        </div>
+        <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
 
-    `  
+    ` 
+    };
 });
 
 /* buttons event listeners */
@@ -73,21 +90,40 @@ addBtn.addEventListener('click', function() {
     newCard.classList.add('cards')
     mainContainer.appendChild(newCard);
 
-    newCard.innerHTML = `
-    <h3 class="book-title">${addTitle.value}</h3
-    <h4 class="book-author">${addAuthor.value}</h4>
-    <p class="book-pages">${addPages.value} pages</p>
-    <h5 class="reading-status">finished reading</h5>
-    <div class="toggle-button-cover">
+    if (addReadStatus.value == 'no') {
+        newCard.innerHTML = `
+        <h3 class="book-title">${addTitle.value}</h3
+        <h4 class="book-author">${addAuthor.value}</h4>
+        <p class="book-pages">${addPages.value} pages</p>
+        <h5 class="reading-status">finished reading</h5>
+        <div class="toggle-button-cover">
+        <div class="button r">
+            <input class="checkbox" type="checkbox" checked>
+            <div class="knobs"></div>
+            <div class="layer"></div>
+        </div>
+        </div>
+        <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
+    
+    `
+    addBookToLibrary()
+
+    } else {
+        newCard.innerHTML = `
+        <h3 class="book-title">${addTitle.value}</h3
+        <h4 class="book-author">${addAuthor.value}</h4>
+        <p class="book-pages">${addPages.value} pages</p>
+        <h5 class="reading-status">finished reading</h5>
+        <div class="toggle-button-cover">
         <div class="button r">
             <input class="checkbox" type="checkbox">
             <div class="knobs"></div>
             <div class="layer"></div>
         </div>
-    </div>
-    <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
+        </div>
+        <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
     
     `
     addBookToLibrary()
-    
+    };    
 });
