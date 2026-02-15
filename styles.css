@@ -8,21 +8,23 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family:  sans-serif;
+    font-family:'Courier New', Courier, monospace;
 }
 
 
 /* FONT*/
 @font-face {
     font-family: 'Retroscape';
-    src: url('Retroscape.woff2') format('woff2'),
-        url('Retroscape.woff') format('woff');
+    src: url('retroscape/Retroscape.woff2') format('woff2'),
+        url('retroscape/Retroscape.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
-
+h5.id {
+    font-size: 0.6rem;
+}
 
 .grid-container {
     display: grid;
@@ -110,11 +112,12 @@ main {
 
 
 }
+
 .cards {
     display: flex;
     flex-direction: column;
     border: 1px solid wheat;
-    height: 14rem;
+    height: 15rem;
     width: 16rem;
     text-align: center;
     align-items: center;
@@ -130,3 +133,5 @@ main {
 aside > .empty-container {
     background-color: rgb(47, 95, 139);
 }
+
+

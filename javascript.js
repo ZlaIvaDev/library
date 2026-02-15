@@ -3,30 +3,60 @@ const addTitle = document.querySelector('.title');
 const addAuthor = document.querySelector('.author');
 const addPages = document.querySelector('.pages');
 const addReadStatus = document.querySelector('.read');
+const addID = document.querySelector('.id');
 
 const mainContainer = document.querySelector('.books-grid');
 const finishedBtnTxt = document.querySelector('.reading-status');
 
-
-
-
-const myLibrary = [];
-
-function Book(title, pages, status, author) {
+function Book(title, pages, author, bstatus, id) {
     this.title = title;
     this.pages = pages;
     this.author = author;
-    this.status = status;
+    this.bstatus = bstatus;
+    this.id = id;
 
 }
 
+
+const myLibrary = [
+    {title:'Hyperion', pages:'483', author:'Dan Simmons',bstatus:'yes',id:crypto.randomUUID()},
+    {title:'Fall of Hyperion', pages:'560', author:'Dan Simmons',bstatus:'yes',id:crypto.randomUUID()},
+    {title:'The Count of Monte Cristo', pages:'1276', author:'Alexander Dumas',bstatus:'no',id:crypto.randomUUID()},
+    {title:'The New Jerusalem: Gothic Chronicle', pages:'289', author:'Borislav Pekic',bstatus:'yes',id:crypto.randomUUID()},
+];
+
+
+
 function addBookToLibrary() {
     let new_book = addTitle.value;
-    new_book = new Book(addTitle.value, addPages.value, addReadStatus.value, addAuthor.value);
+    new_book = new Book(addTitle.value, addPages.value, addAuthor.value, addReadStatus.value, addID.value);
     myLibrary.push(new_book);
 
     
 }
+
+myLibrary.forEach(function showBook(item){
+    console.log(item.author);
+    const newCard = document.createElement('div');
+    newCard.classList.add('cards')
+    mainContainer.appendChild(newCard);
+
+    newCard.innerHTML = `
+    <h3 class="book-title">${item.title}</h3
+    <h4 class="book-author">${item.author}</h4>
+    <p class="book-pages">${item.pages} pages</p>
+    <h5 class="reading-status">finished reading</h5>
+    <div class="toggle-button-cover">
+        <div class="button r">
+            <input class="checkbox" type="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+        </div>
+    </div>
+    <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
+
+    `  
+});
 
 /* buttons event listeners */
 const clearBtn = document.querySelector('.clear');
@@ -46,7 +76,7 @@ addBtn.addEventListener('click', function() {
     newCard.innerHTML = `
     <h3 class="book-title">${addTitle.value}</h3
     <h4 class="book-author">${addAuthor.value}</h4>
-    <p class="book-pages">${addPages.value}</p>
+    <p class="book-pages">${addPages.value} pages</p>
     <h5 class="reading-status">finished reading</h5>
     <div class="toggle-button-cover">
         <div class="button r">
@@ -55,45 +85,9 @@ addBtn.addEventListener('click', function() {
             <div class="layer"></div>
         </div>
     </div>
+    <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
     
     `
     addBookToLibrary()
     
 });
-
-
-
-/* 
-add dugme treba da :
-1. uzme title, author, pages, status (4 parametra!)
-2.appenduje novi <div class="cards"> na main
-3. appenduje na <div class="cards"> :
--> h3 klase='book-title" sa title parametrom
--> h4 klase="book-author" sa author parametrom
--> p klase="book-pages" sa pages parametrom
--> h5 klase="reading-status"
-->DUGME ! koje u zavisnosti od status parametra
-je postavljeno na 'YES' ili 'NO' (hard part)
----> i nakon sto sve to uradi, treba da ocisti inpute !
-
-<div class="cards">
-    <h3 class="book-title">The Count of Monte Cristo</h3>
-        <h4 class="book-author">Alexander Dumas</h4>
-        <p class="book-pages">1276 pages</p>
-        <h5 class="reading-status">finished reading</h5>
-        <!-- From Uiverse.io by JaydipPrajapati1910 --> 
-        <div class="toggle-button-cover">
-                    
-            <div id="button-3" class="button r">
-                        
-                <input class="checkbox" type="checkbox">
-                <div class="knobs"></div>
-                <div class="layer"></div>
-            </div>
-                    
-        </div>
-</div>
-
-clear dugme ima jedan zadatak, a to je da
-ocisti sve inpute!
-*/
