@@ -55,7 +55,7 @@ myLibrary.forEach(function showBook(item){
             <div class="layer"></div>
         </div>
         </div>
-        <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
+        <h5 class="id">Book ID: ${item.id}</h5>
 
     `} else {
         newCard.innerHTML = `
@@ -71,7 +71,7 @@ myLibrary.forEach(function showBook(item){
             <div class="layer"></div>
         </div>
         </div>
-        <h5 class="id">Book ID: ${crypto.randomUUID()}</h5>
+        <h5 class="id">Book ID: ${item.id}</h5>
 
     ` 
     };
