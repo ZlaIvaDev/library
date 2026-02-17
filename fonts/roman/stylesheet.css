@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Roman SD';
+    src: url('RomanSD.woff2') format('woff2'),
+        url('RomanSD.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

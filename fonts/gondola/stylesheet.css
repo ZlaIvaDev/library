@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Gondola SD';
+    src: url('GondolaSD.woff2') format('woff2'),
+        url('GondolaSD.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gondola SD - Swash';
+    src: url('GondolaSD-Swash.woff2') format('woff2'),
+        url('GondolaSD-Swash.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -15,12 +15,30 @@
 /* FONT*/
 @font-face {
     font-family: 'Retroscape';
-    src: url('retroscape/Retroscape.woff2') format('woff2'),
-        url('retroscape/Retroscape.woff') format('woff');
+    src: url('fonts/retroscape/Retroscape.woff2') format('woff2'),
+        url('fonts/retroscape/Retroscape.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: 'Gondola SD';
+    src: url('GondolaSD.woff2') format('woff2'),
+        url('GondolaSD.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gondola SD - Swash';
+    src: url('fonts/gondola/GondolaSD-Swash.woff2') format('woff2'),
+        url('fonts/gondola/GondolaSD-Swash.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 h5.id {
     font-size: 0.6rem;
@@ -50,7 +68,7 @@ h5 {
 
 h1 {
     color: rgb(250, 245, 237);
-    font-family: 'Retroscape';    
+    font-family: 'Gondola SD - Swash';    
 }
 
 /* content*/
@@ -84,13 +102,13 @@ aside.add-book > section {
 input {
     border-radius: 1rem;
     height: 1.75rem;
-    padding: 0.5rem;
+    padding: 0.75rem;
 }
 .input-lbl {
     color: rgb(193, 221, 221);
     font-style: italic;
     margin-top: 0.5rem;
-    font-family: 'Retroscape'; 
+    font-family: 'Gondola SD'; 
 }
 
 
@@ -108,7 +126,6 @@ main {
     padding-top: 8rem;
 
     overflow:auto;
-
 
 }
 
@@ -128,3 +145,11 @@ main {
     background-color: rgb(58, 69, 78);
 
 }
+
+.remove-book {
+    color: red;
+    margin-left: auto;
+    border-radius: 50px;
+    padding: 0 4px;
+}
+

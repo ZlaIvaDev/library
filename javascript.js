@@ -43,6 +43,7 @@ myLibrary.forEach(function showBook(item){
 
     if (item.bstatus == 'no') {
         newCard.innerHTML = `
+        <button class="remove-book" type="submit">&times</button>
         <h3 class="book-title">${item.title}</h3
         <h4 class="book-author">${item.author}</h4>
         <p class="book-pages">${item.pages} pages</p>
@@ -58,6 +59,7 @@ myLibrary.forEach(function showBook(item){
 
     `} else {
         newCard.innerHTML = `
+        <button class="remove-book" type="submit">&times</button>
         <h3 class="book-title">${item.title}</h3
         <h4 class="book-author">${item.author}</h4>
         <p class="book-pages">${item.pages} pages</p>
@@ -92,6 +94,7 @@ addBtn.addEventListener('click', function() {
 
     if (addReadStatus.value == 'no') {
         newCard.innerHTML = `
+        <button class="remove-book" type="submit">&times</button>
         <h3 class="book-title">${addTitle.value}</h3
         <h4 class="book-author">${addAuthor.value}</h4>
         <p class="book-pages">${addPages.value} pages</p>
@@ -110,6 +113,8 @@ addBtn.addEventListener('click', function() {
 
     } else {
         newCard.innerHTML = `
+        <button class="remove-book" type="submit">&times</button>
+        
         <h3 class="book-title">${addTitle.value}</h3
         <h4 class="book-author">${addAuthor.value}</h4>
         <p class="book-pages">${addPages.value} pages</p>
@@ -127,3 +132,11 @@ addBtn.addEventListener('click', function() {
     addBookToLibrary()
     };    
 });
+
+
+const library = document.querySelector('.books-grid');
+library.addEventListener('click', function(e) {
+    if (e.target.classList.contains("remove-book")) {
+        e.target.parentElement.remove()
+    }
+})
